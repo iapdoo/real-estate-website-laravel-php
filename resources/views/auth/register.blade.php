@@ -5,7 +5,7 @@
 @section('content')
     <div class="container">
         <div class="contact_bottom">
-            <h3>تسجيل عضويه جديده  </h3>
+            <h3>{{trans('admin.new_user')}}</h3>
         </div>
     </div>
 <div class="container">
@@ -29,7 +29,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <label for="name" class="col-md-4 col-form-label" style="direction: ltr ">{{ __('الاسم ') }}</label>
+                            <label for="name" class="col-md-4 col-form-label" style="direction: ltr ">{{trans('admin.name')}}</label>
                         </div>
 
                         <div class="form-group row">
@@ -43,7 +43,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <label for="email" class="col-md-4 col-form-label " style="direction: ltr ">{{ __('عنوان البريد الالكتروني') }}</label>
+                            <label for="email" class="col-md-4 col-form-label " style="direction: ltr ">{{ trans('admin.email') }}</label>
                         </div>
 
                         <div class="form-group row">
@@ -58,7 +58,7 @@
                                     </span>
                                 @enderror
                             </div>
-                            <label for="password" class="col-md-4 col-form-label " style="direction: ltr ">{{ __('كلمه المرور') }}</label>
+                            <label for="password" class="col-md-4 col-form-label " style="direction: ltr ">{{ trans('admin.password')}}</label>
                         </div>
 
                         <div class="form-group row">
@@ -67,14 +67,14 @@
                             <div class="col-md-4">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
-                            <label for="password-confirm" class="col-md-4 col-form-label " style="direction: ltr ">{{ __('تاكيد كلمه المرور') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label " style="direction: ltr ">{{trans('admin.password_confirmation')}}</label>
 
                         </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
                                 <button type="submit" class="btn btn-warning">
-                                    {{ __('تسجيل العضويه ') }}
+                                    {{trans('admin.new_user') }}
                                 </button>
                             </div>
                         </div>

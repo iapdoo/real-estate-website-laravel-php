@@ -29,10 +29,7 @@
                 <div class="profile-content">
                 {{-- start change user email / name  --}}
 
-                <!--
-                       {!! Form::model($user, ['action'=>['UsersController@userUpdatProfil','id'=>$user->id]]) !!}
-                        -->
-                        {!! Form::open(['method' => 'PATCH','action'=>['UsersController@userUpdatProfil','id'=>$user->id]]) !!}
+                        {!! Form::open(['method' => 'PATCH','action'=>['UserProfilController@userUpdateProfile','id'=>$user->id]]) !!}
                         <div class="form-group">
                             {{Form::label('name', 'الاسم ' ,'style = "float: right; margin-right: 10px;"')}}
                             {{Form::text('name', $user->name,['class' => 'form-control','placeholder'=>'Name' ,'style = "text-align: right;"'])}}

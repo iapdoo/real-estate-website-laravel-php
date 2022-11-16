@@ -7,6 +7,7 @@ use App\Http\Requests\userUpdatePassword;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Redirect;
 
 class UserProfilController extends Controller
 {
@@ -49,5 +50,6 @@ class UserProfilController extends Controller
 
         }
     }
+
 
 }

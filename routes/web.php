@@ -14,13 +14,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 //route admin change password user
 Route::post('/adminpanel/users/changepassword', 'UsersController@updatePassword');
 //route users  edit his Sitting
-Route::post('/users/editSitting', 'UsersController@userEdit')->middleware('auth');
-Route::get('/users/editSitting', 'UsersController@userEdit')->middleware('auth');
-Route::patch('/users/editSitting', 'UsersController@userUpdatProfil')->middleware('auth');
+Route::post('/users/editSitting', 'UserProfilController@userEdit')->middleware('auth');
+Route::get('/users/editSitting', 'UserProfilController@userEdit')->middleware('auth');
+Route::patch('/users/editSitting', 'UserProfilController@userUpdateProfile')->middleware('auth');
 //route user change his password
 Route::post('/users/changepassword', 'UsersController@changepassword')->middleware('auth');
 
-Route::get('/SingleBuilding/delete/{id}', 'BuController@delete')->middleware('auth');
+Route::get('/SingleBuilding/delete/{id}', 'AdminBuildingController@delete')->middleware('auth');
 
 /*
  * admin route

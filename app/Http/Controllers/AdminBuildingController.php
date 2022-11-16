@@ -18,29 +18,27 @@ class AdminBuildingController extends Controller
     public function create(Bu $bul){
         return view('admin.bu.add',compact('bul'));
     }
-
     protected function store(Request $request ,Bu $bul)
     {
-        $rules=[
-
-            'bu_type' =>  'required',
-            'bu_name' =>  'required|string|max:100',
-            'bu_price' =>  'required',
-            'bu_square' =>  'required|string|max:100',
-            'bu_small_dis' =>  'required|string|max:100',
-            'bu_meta' =>  'required|string|max:100',
-            'bu_langtude' =>  'required|string|max:100',
-            'bu_latetude' =>  'required|string|max:100',
-            'bu_status' =>  'required|string|max:100',
-            'bu_rant' =>  'required',
-            'bu_large_dis' =>  'required|string|max:200',
-            'bu_rooms' =>  'required',
-            'bu_place'=>'required',
-            'photo'=>'required|mimes:jpg,jpeg,png,svg,gif|max:2048',
-            'files.*'=>'required|mimes:jpg,jpeg,png,svg,gif|max:2048',
-        ];
         $data= $this->validate(request(),
-            $rules,[],[]
+            [
+
+                'bu_type' =>  'required',
+                'bu_name' =>  'required|string|max:100',
+                'bu_price' =>  'required',
+                'bu_square' =>  'required|string|max:100',
+                'bu_small_dis' =>  'required|string|max:100',
+                'bu_meta' =>  'required|string|max:100',
+                'bu_langtude' =>  'required|string|max:100',
+                'bu_latetude' =>  'required|string|max:100',
+                'bu_status' =>  'required|string|max:100',
+                'bu_rant' =>  'required',
+                'bu_large_dis' =>  'required|string|max:200',
+                'bu_rooms' =>  'required',
+                'bu_place'=>'required',
+                'photo'=>'required|mimes:jpg,jpeg,png,svg,gif|max:2048',
+                'files.*'=>'required|mimes:jpg,jpeg,png,svg,gif|max:2048',
+            ],[],[]
         );
         $tempfolder=  time();
         $data['photo']=$request->photo->store('image/'.$tempfolder);
@@ -93,25 +91,25 @@ class AdminBuildingController extends Controller
             }
             return redirect('adminpanel/bu/'.$id.'/edit')->withFlashMassage('تم حذف الصوره بنجاح ');;
         }else{
-            $rules=[
-                'bu_type' =>  'required',
-                'bu_name' =>  'required|string|max:100',
-                'bu_price' =>  'required',
-                'bu_square' =>  'required|string|max:100',
-                'bu_small_dis' =>  'required|string|max:100',
-                'bu_meta' =>  'required|string|max:100',
-                'bu_langtude' =>  'required|string|max:100',
-                'bu_latetude' =>  'required|string|max:100',
-                'bu_status' =>  'required|string|max:100',
-                'bu_rant' =>  'required',
-                'bu_large_dis' =>'required|string|max:200',
-                'bu_rooms' =>  'required',
-                'bu_place'=>'required',
-                'photo'=>'mimes:jpg,jpeg,png,svg,gif|max:2048',
-                'files.*'=>'mimes:jpg,jpeg,png,svg,gif|max:2048',
-            ];
+
             $data= $this->validate(request(),
-                $rules,[],[]
+                [
+                    'bu_type' =>  'required',
+                    'bu_name' =>  'required|string|max:100',
+                    'bu_price' =>  'required',
+                    'bu_square' =>  'required|string|max:100',
+                    'bu_small_dis' =>  'required|string|max:100',
+                    'bu_meta' =>  'required|string|max:100',
+                    'bu_langtude' =>  'required|string|max:100',
+                    'bu_latetude' =>  'required|string|max:100',
+                    'bu_status' =>  'required|string|max:100',
+                    'bu_rant' =>  'required',
+                    'bu_large_dis' =>'required|string|max:200',
+                    'bu_rooms' =>  'required',
+                    'bu_place'=>'required',
+                    'photo'=>'mimes:jpg,jpeg,png,svg,gif|max:2048',
+                    'files.*'=>'mimes:jpg,jpeg,png,svg,gif|max:2048',
+                ],[],[]
             );
             $data=\request()->except(['files','_method','_token']);
             $bu=  Bu::find($id);
